@@ -29,7 +29,7 @@ public class ExamplePlugin extends Plugin{
     public void registerServerCommands(CommandHandler handler){
         handler.register("autoshutdown", "Turn on the autoshutdown upon gameover event", args -> {
             doShutdown = !doShutdown;
-            Log.info("Auto Shutdown:", doShutdown);
+            Log.info("Auto shutdown is now ", doShutdown ? "enabled" : "disabled");
         });
     }
 
