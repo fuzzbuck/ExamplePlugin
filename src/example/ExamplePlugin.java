@@ -13,16 +13,18 @@ import mindustry.world.blocks.storage.*;
 public class ExamplePlugin extends Plugin{
 
     public static boolean doShutdown = false;
+    public static int is = 0;
     @Override
     public void init(){
         Events.on(GameOverEvent.class, event -> {
-            if (doShutdown) {
+            if (doShutdown && is > 0) {
                 Log.info("gameover w/ autoshutdown on, exiting in 10 seconds");
                 Call.sendMessage("[accent]GG![] The server will shutdown in 10 seconds to free resources for others.\n[accent]Thank you for using io.community games![]");
                 Timer.schedule(() -> {
                     Core.app.exit();
                 }, 10);
             }
+            is += 1;
         });
     }
 
