@@ -16,8 +16,12 @@ public class ExamplePlugin extends Plugin{
     @Override
     public void init(){
         Events.on(GameOverEvent.class, event -> {
-            if (doShutdown)
-                Core.app.exit();
+            if (doShutdown) {
+                Call.sendMessage("[accent]GG![/accent] The server will shutdown in 10 seconds to free resources for others.\n[accent]Thank you for using io.community games![/accent]");
+                Timer.schedule(() -> {
+                    Core.app.exit();
+                }, 10);
+            }
         });
     }
 
