@@ -18,7 +18,7 @@ public class ExamplePlugin extends Plugin{
         Events.on(GameOverEvent.class, event -> {
             if (doShutdown) {
                 Log.info("gameover w/ autoshutdown on, exiting in 10 seconds");
-                Call.sendMessage("[accent]GG![/accent] The server will shutdown in 10 seconds to free resources for others.\n[accent]Thank you for using io.community games![/accent]");
+                Call.sendMessage("[accent]GG![] The server will shutdown in 10 seconds to free resources for others.\n[accent]Thank you for using io.community games![]");
                 Timer.schedule(() -> {
                     Core.app.exit();
                 }, 10);
@@ -37,8 +37,7 @@ public class ExamplePlugin extends Plugin{
     @Override
     public void registerClientCommands(CommandHandler handler){
         handler.<Player>register("info", "", "?", (args, player) -> {
-            player.sendMessage("These [accent]games[/accent] are hosted by the [accent]<[/]io[accent]>[/] community.\nWant to create your own for [accent]free[/]? Visit [accent]https://discord.io.community");
+            player.sendMessage("These [accent]games[] are hosted by the [accent]<[]io[accent]>[] community.\nWant to create your own for [accent]free[]? Visit [accent]https://discord.io.community");
         });
-
     }
 }
